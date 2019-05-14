@@ -5,7 +5,7 @@ class TabContainerElement extends HTMLElement {
     super()
 
     this.addEventListener('keydown', (event: KeyboardEvent) => {
-      const { target } = event
+      const {target} = event
       if (target.getAttribute('role') !== 'tab' && !target.closest('[role="tablist"]')) return
       const tabs = Array.from(this.querySelectorAll('[role="tablist"] [role="tab"]'))
       let index = tabs.indexOf(tabs.find(tab => tab.matches('[aria-selected="true"]')))
@@ -21,7 +21,7 @@ class TabContainerElement extends HTMLElement {
         index = tabs.length - 1
         event.preventDefault()
       }
-      this.selectTab(index % tabs.length);
+      this.selectTab(index % tabs.length)
     })
 
     this.addEventListener('click', (event: MouseEvent) => {
